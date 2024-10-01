@@ -5,55 +5,28 @@ function setup() {
 function draw() {
   background(220);
 
-  // Cambiar el color de la figura según la posición del mouse
+  // Cambiar el nivel de la batería y el color del background según la posición horizontal del mouse
   if (mouseX < width / 3) {
-    fill(255, 0, 0); // Rojo para la parte izquierda
-  } else if (mouseX < (2 * width) / 3) {
-    fill(0, 255, 0); // Verde para la parte central
+    background(150, 150, 200);
+    fill(255, 0, 0); // Relleno rojo si está en la izquierda
+    noStroke(0);
+    rect(width / 2, 450, 100, 30, 7);
+  } else if (mouseX >= (2 * width) / 3) {
+    background(200, 0, 100);
+    fill(0, 220, 0); // Relleno verde si está en la derecha
+    noStroke(0);
+    rect(width / 2, 280, 100, 200, 10);
   } else {
-    fill(0, 0, 255); // Azul para la parte derecha
+    background(100, 180, 50);
+    fill(250, 180, 100); // Relleno naranja si está en el centro
+    noStroke(0);
+    rect(width / 2, 377, 100, 100, 8);
   }
 
-  // Dibujar la elipse en el centro del lienzo
-  ellipse(width / 2, height / 2, 100, 100);
-
-  strokeWeight(4);
-  stroke(0);
-  fill(50, 180, 100);
-  circle(mouseX + 58, mouseY - 40, 10);
-
-  if (mouseX < width / 2) {
-    fill(50, 180, 100);
-    circle(250, 200, 100);
-  }
-
-  strokeWeight(4);
-  stroke(0);
-  fill(50, 180, 100);
-  circle(width / 2, height / 2, 100);
-
-  fill(0, 100, 150);
-  circle(mouseX - 20, mouseY - 200, 10);
-  fill(150, 0, 100);
-  circle(mouseX + 200, mouseY - 50, 10);
-
+  // Dibujo el contorno
   noFill(0);
-  stroke(35);
-  strokeWeight(7);
-  ellipse(mouseX + 50, 320, 250, 100); //horizontal
-  ellipse(mouseX + 130, 240, 100, 250);
-
   stroke(0);
-  strokeWeight(3);
-  fill(175);
-  ellipse(mouseX + 148, 340, 60);
-
-  fill(150, 0, 100);
-  ellipse(mouseX + 200, 460, 15);
-
-  fill(50, 180, 100);
-  ellipse(mouseX + 50, 380, 20);
-
-  fill(0, 100, 150);
-  ellipse(mouseX + 128, 270, 27);
+  strokeWeight(6);
+  rect(width / 2, 280, 100, 200, 10); // Caja principal
+  rect(width / 2 + 40, 260, 20, 20, 3); // Caja superior
 }
